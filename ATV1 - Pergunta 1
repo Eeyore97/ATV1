@@ -17,7 +17,6 @@ class Edificio implements CarbonFootprint {
     // Métodos da interface
     @Override
     public double getCarbonFootprint() {
-        // Cálculo fictício da pegada de carbono para um edifício
         return numeroDeAndares * 10.0;
     }
 
@@ -49,7 +48,6 @@ class Carro implements CarbonFootprint {
     // Métodos da interface
     @Override
     public double getCarbonFootprint() {
-        // Cálculo fictício da pegada de carbono para um carro
         return 50.0;
     }
 
@@ -81,7 +79,6 @@ class Bicicleta implements CarbonFootprint {
     // Métodos da interface
     @Override
     public double getCarbonFootprint() {
-        // Cálculo fictício da pegada de carbono para uma bicicleta
         return 5.0;
     }
 
@@ -102,9 +99,9 @@ class Bicicleta implements CarbonFootprint {
 // Exemplo de utilização
 public class Main {
     public static void main(String[] args) {
-        Edificio edificio = new Edificio("Rua ABC, 123", 10);
-        Carro carro = new Carro("Toyota Camry", "Prata");
-        Bicicleta bicicleta = new Bicicleta("Mountain Bike", 21);
+        Edificio edificio = new Edificio("Rua Jardim, 872", 10);
+        Carro carro = new Carro("Chevrolet Opala", "Preta");
+        Bicicleta bicicleta = new Bicicleta("BMX", 21);
 
         // Calculando e exibindo a pegada de carbono
         System.out.println("Pegada de carbono do edifício: " + edificio.getCarbonFootprint() + " kg CO2");
