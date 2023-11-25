@@ -1,0 +1,114 @@
+// Interface CarbonFootprint
+interface CarbonFootprint {
+    double getCarbonFootprint();
+}
+
+// Classe Edificio
+class Edificio implements CarbonFootprint {
+    private String endereco;
+    private int numeroDeAndares;
+
+    // Construtor
+    public Edificio(String endereco, int numeroDeAndares) {
+        this.endereco = endereco;
+        this.numeroDeAndares = numeroDeAndares;
+    }
+
+    // Métodos da interface
+    @Override
+    public double getCarbonFootprint() {
+        // Cálculo fictício da pegada de carbono para um edifício
+        return numeroDeAndares * 10.0;
+    }
+
+    // Outros métodos
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public int getNumeroDeAndares() {
+        return numeroDeAndares;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Edifício localizado em " + endereco + " com " + numeroDeAndares + " andares.");
+    }
+}
+
+// Classe Carro
+class Carro implements CarbonFootprint {
+    private String modelo;
+    private String cor;
+
+    // Construtor
+    public Carro(String modelo, String cor) {
+        this.modelo = modelo;
+        this.cor = cor;
+    }
+
+    // Métodos da interface
+    @Override
+    public double getCarbonFootprint() {
+        // Cálculo fictício da pegada de carbono para um carro
+        return 50.0;
+    }
+
+    // Outros métodos
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void dirigir() {
+        System.out.println("O carro está em movimento.");
+    }
+}
+
+// Classe Bicicleta
+class Bicicleta implements CarbonFootprint {
+    private String tipo;
+    private int numeroDeMarchas;
+
+    // Construtor
+    public Bicicleta(String tipo, int numeroDeMarchas) {
+        this.tipo = tipo;
+        this.numeroDeMarchas = numeroDeMarchas;
+    }
+
+    // Métodos da interface
+    @Override
+    public double getCarbonFootprint() {
+        // Cálculo fictício da pegada de carbono para uma bicicleta
+        return 5.0;
+    }
+
+    // Outros métodos
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getNumeroDeMarchas() {
+        return numeroDeMarchas;
+    }
+
+    public void pedalar() {
+        System.out.println("A bicicleta está em movimento.");
+    }
+}
+
+// Exemplo de utilização
+public class Main {
+    public static void main(String[] args) {
+        Edificio edificio = new Edificio("Rua ABC, 123", 10);
+        Carro carro = new Carro("Toyota Camry", "Prata");
+        Bicicleta bicicleta = new Bicicleta("Mountain Bike", 21);
+
+        // Calculando e exibindo a pegada de carbono
+        System.out.println("Pegada de carbono do edifício: " + edificio.getCarbonFootprint() + " kg CO2");
+        System.out.println("Pegada de carbono do carro: " + carro.getCarbonFootprint() + " kg CO2");
+        System.out.println("Pegada de carbono da bicicleta: " + bicicleta.getCarbonFootprint() + " kg CO2");
+    }
+}
