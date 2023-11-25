@@ -100,7 +100,7 @@ class Bicicleta implements CarbonFootprint {
 public class Main {
     public static void main(String[] args) {
         Edificio edificio = new Edificio("Rua Jardim, 872", 10);
-        Carro carro = new Carro("Chevrolet Opala", "Preta");
+        Carro carro = new Carro("Chevrolet Opala", "Preto");
         Bicicleta bicicleta = new Bicicleta("BMX", 21);
 
         // Calculando e exibindo a pegada de carbono
