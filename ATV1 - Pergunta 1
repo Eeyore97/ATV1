@@ -1,0 +1,75 @@
+interface CarbonFootprint {
+    double getCarbonFootprint();
+}
+
+// Classe abstrata Edificio
+abstract class Edificio implements CarbonFootprint {
+    private String endereco;
+    private int numeroDeAndares;
+
+    // Construtor
+    public Edificio(String endereco, int numeroDeAndares) {
+        this.endereco = endereco;
+        this.numeroDeAndares = numeroDeAndares;
+    }
+
+    // Métodos getters
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public int getNumeroDeAndares() {
+        return numeroDeAndares;
+    }
+
+    // Método abstrato a ser implementado pelas subclasses
+    public abstract double getCarbonFootprint();
+}
+
+// Subclasse Casa
+class Casa extends Edificio {
+    private int numeroDePessoas;
+
+    // Construtor
+    public Casa(String endereco, int numeroDeAndares, int numeroDePessoas) {
+        super(endereco, numeroDeAndares);
+        this.numeroDePessoas = numeroDePessoas;
+    }
+
+    // Implementação do método abstrato
+    @Override
+    public double getCarbonFootprint() {
+        // Cálculo fictício da pegada de carbono para uma casa
+        return getNumeroDeAndares() * 10.0 + numeroDePessoas * 2.0;
+    }
+}
+
+// Subclasse Escola
+class Escola extends Edificio {
+    private int numeroDeAlunos;
+
+    // Construtor
+    public Escola(String endereco, int numeroDeAndares, int numeroDeAlunos) {
+        super(endereco, numeroDeAndares);
+        this.numeroDeAlunos = numeroDeAlunos;
+    }
+
+    // Implementação do método abstrato
+    @Override
+    public double getCarbonFootprint() {
+        // Cálculo fictício da pegada de carbono para uma escola
+        return getNumeroDeAndares() * 8.0 + numeroDeAlunos * 3.0;
+    }
+}
+
+// Exemplo de utilização
+public class Main {
+    public static void main(String[] args) {
+        Casa casa = new Casa("Rua XYZ, 456", 2, 4);
+        Escola escola = new Escola("Avenida 123, Escola ABC", 3, 300);
+
+        // Calculando e exibindo a pegada de carbono
+        System.out.println("Pegada de carbono da casa: " + casa.getCarbonFootprint() + " kg CO2");
+        System.out.println("Pegada de carbono da escola: " + escola.getCarbonFootprint() + " kg CO2");
+    }
+}
